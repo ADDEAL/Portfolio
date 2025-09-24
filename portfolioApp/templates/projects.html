@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+
+<section class="container py-5 my-5">
+  <h2 class="text-center mb-3">🚀 My Projects</h2>
+  <p class="text-center text-muted mb-5">
+    A selection of web projects I've built using <strong>Django</strong>, <strong>Python</strong>, 
+    and modern front-end tools. These showcase both my technical skills and design sense.
+  </p>
+
+  <div class="row">
+    <!-- Project Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm project-card border-0">
+        <img src="{% static 'images/project1.png' %}" class="card-img-top" alt="Portfolio Website">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Portfolio Website</h5>
+          <p class="card-text">Personal portfolio built with Django & Bootstrap, showcasing my projects and skills.</p>
+          <div class="mb-3">
+            <span class="badge bg-primary">Django</span>
+            <span class="badge bg-secondary">Bootstrap</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://github.com/ADDEAL/Portfolio" target="_blank" class="btn btn-outline-primary btn-sm me-2">Code</a>
+            <a href="#" class="btn btn-outline-secondary btn-sm disabled" tabindex="-1" aria-disabled="true">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm project-card border-0">
+        <img src="{% static 'images/project2.png' %}" class="card-img-top" alt="E-commerce Website">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Product Inventory Management App</h5>
+          <p class="card-text">A full CRUD(create, Read, Update, Delete) application, where the users can add, view, update or delete products to control/manage stock</p>
+          <div class="mb-3">
+            <span class="badge bg-primary">Django</span>
+            <span class="badge bg-secondary">Bootstrap</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://github.com/ADDEAL/first-django-project" target="_blank" class="btn btn-outline-primary btn-sm me-2">Code</a>
+            <a href="#" class="btn btn-outline-secondary btn-sm disabled" tabindex="-1" aria-disabled="true">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm project-card border-0">
+        <img src="{% static 'images/project3.png' %}" class="card-img-top" alt="Blog Platform">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">An Authenthication Practice website</h5>
+          <p class="card-text">An authentication web that makes sure is the valid user that can enter and view the web pages .</p>
+          <div class="mb-3">
+            <span class="badge bg-primary">Django</span>
+            <span class="badge bg-secondary">Bootstrap</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://github.com/ADDEAL/Authentication-practice" target="_blank" class="btn btn-outline-primary btn-sm me-2">Code</a>
+            <a href="#" class="btn btn-outline-secondary btn-sm disabled" tabindex="-1" aria-disabled="true">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+

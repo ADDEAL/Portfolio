@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<!-- Hero Section (Responsive & Compact) -->
+<section class="py-5 mt-5 bg-dark text-light">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      
+      <!-- Left Text -->
+      <div class="col-md-7 order-2 order-md-1 text-center text-md-start">
+        <h1 class="fw-bold">Hi, I'm <span class="text-warning">Al-Ameen</span></h1>
+        <p class="lead">Also known as ADEAL</p>
+        <p>Web Designer & Django Developer. I create modern and responsive websites.</p>
+        <a href="{% url 'projects' %}" class="btn btn-success mt-3">View My Work</a>
+      </div>
+
+      <!-- Right Small Image -->
+      <div class="col-md-5 order-1 order-md-2 text-center mb-4 mb-md-0">
+        <img src="{% static 'images/hero.png' %}" 
+             alt="Profile/Illustration" 
+             class="img-fluid rounded-circle shadow-sm" 
+             style="max-width: 200px; height: auto;">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Skills -->
+<section class="bg-white py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4">My Skills</h2>
+    <div class="d-flex justify-content-center flex-wrap">
+      <span class="badge bg-primary m-2 p-2">Python</span>
+      <span class="badge bg-success m-2 p-2">Django</span>
+      <span class="badge bg-warning text-dark m-2 p-2">HTML & CSS</span>
+      <span class="badge bg-info text-dark m-2 p-2">Bootstrap</span>
+      <span class="badge bg-secondary m-2 p-2">Git</span>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="container py-5">
+  <h2 class="fw-bold text-center mb-5">What I Do</h2>
+  <div class="row">
+    <!-- Card 1 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <h4 class="fw-bold mb-3">Web Design</h4>
+          <p>Beautiful and modern designs with a focus on user experience.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <h4 class="fw-bold mb-3">Django Development</h4>
+          <p>Robust backend development using Python and Django.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <h4 class="fw-bold mb-3">Responsive Websites</h4>
+          <p>Mobile-first websites that work seamlessly on any device.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Preview -->
+<section class="bg-light py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Featured Projects</h2>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+          <img src="{% static 'images/project1.png' %}" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">Portfolio website</h5>
+            <p class="card-text">Personal portfolio built with Django & Bootstrap</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+          <img src="{% static 'images/project2.png' %}" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Product Inventory Management App</h5>
+            <p class="card-text">A full CRUD(create, Read, Update, Delete) application.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+          <img src="{% static 'images/project3.png' %}" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">An Authenthication Practice website</h5>
+            <p class="card-text">An authentication web that validates users before viewing the web pages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'projects' %}" class="btn btn-dark mt-3">See More</a>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="py-2 text-center bg-dark text-light">
+  <div class="container">
+    <h2 class="fw-bold mb-2">Let's Work Together</h2>
+    <p class="lead">Have a project in mind? I'm open to collaborations and freelance work.</p>
+    <a href="{% url 'contact' %}" class="btn btn-warning btn-lg mt-1">Contact Me</a>
+  </div>
+</section>
+
+{% endblock %}
