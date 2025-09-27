@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 from .forms import ContactForm
+from django.core.mail import EmailMessage
+import os 
 
 # Create your views here.
 def home(request):
@@ -18,12 +20,15 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            send_mail(
+            # Create the email
+            email = EmailMessage(
                 subject=f"Contact from {form.cleaned_data['name']}",
-                message=form.cleaned_data['message'],
-                from_email=form.cleaned_data['email'],
-                recipient_list=['adelekeadeal@gmail.com'],
+                body=form.cleaned_data['message'],
+                from_email=os.environ.get('EMAIL_HOST_USER'),  # always your verified email
+                to=['adelekeadeal@gmail.com'],  # where you receive messages
+                reply_to=[form.cleaned_data['email']]  # sender’s email
             )
+            email.send(fail_silently=False)
             success = True
             form = ContactForm()
     return render(request, "contact.html", {"form": form, "success": success})
