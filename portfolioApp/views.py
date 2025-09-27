@@ -20,13 +20,12 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Create the email
             email = EmailMessage(
                 subject=f"Contact from {form.cleaned_data['name']}",
                 body=form.cleaned_data['message'],
-                from_email=os.environ.get('EMAIL_HOST_USER'),  # always your verified email
-                to=['adelekeadeal@gmail.com'],  # where you receive messages
-                reply_to=[form.cleaned_data['email']]  # sender’s email
+                from_email=os.environ.get('DEFAULT_FROM_EMAIL'),  # your verified sender
+                to=[os.environ.get('CONTACT_EMAIL')],  # receive messages here
+                reply_to=[form.cleaned_data['email']]  # user who submitted
             )
             email.send(fail_silently=False)
             success = True
