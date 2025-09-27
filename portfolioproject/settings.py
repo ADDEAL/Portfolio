@@ -138,6 +138,17 @@ EMAIL_USE_TLS = env("EMAIL_USE_TLS")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+CONTACT_EMAIL = env("CONTACT_EMAIL")
+
+import ssl, smtplib
+
+class TrustAllSSLContext(smtplib.SMTP):
+    def starttls(self, *args, **kwargs):
+        kwargs['context'] = ssl._create_unverified_context()
+        return super().starttls(*args, **kwargs)
+
+# Force Django to use the unverified SSL context
+smtplib.SMTP = TrustAllSSLContext
 
 STATIC_URL = 'static/'
 

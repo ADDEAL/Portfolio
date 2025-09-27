@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.core.mail import send_mail
-from .forms import ContactForm
 from django.core.mail import EmailMessage
-import os 
+from .forms import ContactForm
+from django.conf import settings
 
 # Create your views here.
 def home(request):
@@ -23,9 +22,9 @@ def contact(request):
             email = EmailMessage(
                 subject=f"Contact from {form.cleaned_data['name']}",
                 body=form.cleaned_data['message'],
-                from_email=os.environ.get('DEFAULT_FROM_EMAIL'),  # your verified sender
-                to=[os.environ.get('CONTACT_EMAIL')],  # receive messages here
-                reply_to=[form.cleaned_data['email']]  # user who submitted
+                from_email=settings.DEFAULT_FROM_EMAIL,     # Gmail account you’re sending with
+                to=[settings.CONTACT_EMAIL],                # inbox where you want to receive
+                reply_to=[form.cleaned_data['email']]       # user’s email (so you can reply)
             )
             email.send(fail_silently=False)
             success = True
